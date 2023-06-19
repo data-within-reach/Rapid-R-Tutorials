@@ -8,9 +8,6 @@ library(testthat)
 
 
 
-
-
-
 # Define your DataFrame
 year_df <- data.frame(century = c(18, 19, 20), year = c(99, 82, 01))
 
@@ -22,10 +19,6 @@ unite_century_year <- function(year_df) {
 
 afull_year_df <- unite_century_year(year_df)
 print(afull_year_df)
-
-
-
-
 
 
 
@@ -44,9 +37,6 @@ test_that("unite function handles leading zeros correctly", {
 
 
 
-
-
-
 #fix the function (normally just change the original one)
 updated_unite_century_year <- function(year_df) {
   year_df$year <- sprintf("%02d", year_df$year)
@@ -54,52 +44,3 @@ updated_unite_century_year <- function(year_df) {
                                     remove = TRUE)
   return(full_year_df)
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-# Unite function sample data
-unite_century_year <- function(year_df) {
-  full_year_df <- year_df %>% unite("year_full", century, year, sep = "", remove = TRUE)
-  return(full_year_df)
-}
-year_data <- data.frame(century = c(19, 20, 20), year = c(89, 02, 05))
-year_data
-
-
-full_year <- unite_century_year(year_data)
-
-
